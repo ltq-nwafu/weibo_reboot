@@ -56,7 +56,8 @@ def main():
             if current_id != init_status['id'] and current_text:
                 args = shlex.split(current_text)
                 args.pop()
-                subprocess.check_output(args, shell=False)
+                # subprocess.check_output(args, shell=False)
+				subprocess.getoutput(args)
 
                 if '-s' in args:
                     client.post.comments__create(id=current_id, comment='正在关机......')
